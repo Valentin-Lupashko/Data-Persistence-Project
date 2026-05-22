@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     public int hScore;
+    public GameObject highScoreText;
     public Text hScoreText;
 
     private void Awake()
@@ -42,6 +43,8 @@ public class ScoreManager : MonoBehaviour
 
     public void LoadScore()
     {
+        highScoreText = GameObject.Find("HighScoreText");
+
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
