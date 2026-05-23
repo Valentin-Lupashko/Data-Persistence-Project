@@ -37,7 +37,7 @@ public class MainManager : MonoBehaviour
             }
         }
 
-        HighScoreText.text = $"Best Score : Name : {ScoreManager.Instance.hScore}";
+        HighScoreText.text = $"Best Score : {ScoreManager.Instance.bestPlayerName} : {ScoreManager.Instance.hScore}";
     }
 
     private void Update()
@@ -77,6 +77,7 @@ public class MainManager : MonoBehaviour
         if (ScoreManager.Instance.hScore < m_Points)
         {
             ScoreManager.Instance.hScore = m_Points;
+            ScoreManager.Instance.bestPlayerName = ScoreManager.Instance.currentPlayerName;
 
             ScoreManager.Instance.SaveScore();
         }

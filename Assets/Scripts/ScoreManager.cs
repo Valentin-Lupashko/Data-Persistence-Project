@@ -5,12 +5,15 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
+    public InputHandler inputHandler;
+
     public int hScore;
-    public GameObject highScoreText;
-    public Text hScoreText;
+    public string currentPlayerName;
+    public string bestPlayerName;
 
     private void Awake()
     {
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -27,24 +30,32 @@ public class ScoreManager : MonoBehaviour
     class SaveData
     {
         public int hScore;
-        public string hScoreText;
+        public string bestPlayerName;
     }
 
     public void SaveScore()
     {
         SaveData data = new SaveData();
         data.hScore = hScore;
-        data.hScoreText = $"Best Score : Name : {hScore}";
+        data.bestPlayerName = currentPlayerName;
 
         string json = JsonUtility.ToJson(data);
 
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
     }
 
+    // public void SaveName()
+    // {
+    //     SaveData data = new SaveData();
+    //     data.playerName = playerName;
+
+    //     string json = JsonUtility.ToJson(data);
+
+    //     File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
+    // }
+
     public void LoadScore()
     {
-        highScoreText = GameObject.Find("HighScoreText");
-
         string path = Application.persistentDataPath + "/savefile.json";
         if (File.Exists(path))
         {
@@ -52,7 +63,7 @@ public class ScoreManager : MonoBehaviour
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
             hScore = data.hScore;
-            hScoreText.text = data.hScoreText;
+            bestPlayerName = data.bestPlayerName;
         }
     }
 }

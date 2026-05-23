@@ -3,11 +3,12 @@ using UnityEngine.UI;
 
 public class InputHandler : MonoBehaviour
 {
-    public string playerName;
+    public string pName;
+    public ScoreManager scoreManager;
 
     public void ReadStringInput(string s)
     {
-        playerName = s;
-        Debug.Log(playerName);
+        pName = s;
+        scoreManager.currentPlayerName = pName;
     }
 }
