@@ -578,8 +578,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
   inputHandler: {fileID: 182964517}
+  menuHighScoreText: {fileID: 1402850307}
   hScore: 0
-  playerName: 
+  currentPlayerName: 
+  bestPlayerName: 
 --- !u!4 &191338667
 Transform:
   m_ObjectHideFlags: 0

@@ -538,7 +538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
   inputHandler: {fileID: 0}
   hScore: 0
-  playerName: 
+  currentPlayerName: 
+  bestPlayerName: 
 --- !u!4 &190205952
 Transform:
   m_ObjectHideFlags: 0
@@ -744,7 +745,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'GAME OVER
 
-    Press Space to Restart'
+    Press Space to Restart
+
+    Press M to return to menu'
 --- !u!222 &474497241
 CanvasRenderer:
   m_ObjectHideFlags: 0

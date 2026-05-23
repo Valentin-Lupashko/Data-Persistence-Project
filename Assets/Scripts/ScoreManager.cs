@@ -1,11 +1,13 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     public InputHandler inputHandler;
+    public TextMeshProUGUI menuHighScoreText;
 
     public int hScore;
     public string currentPlayerName;
@@ -24,6 +26,8 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadScore();
+
+        menuHighScoreText.text = $"Best score : {bestPlayerName} : {hScore}";
     }
 
     [System.Serializable]
